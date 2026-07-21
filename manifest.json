@@ -1,5 +1,5 @@
 {
-    "display_name": "CHAR-POP-PRO",
+    "display_name": "CHAR-POP",
     "loading_order": 10,
     "requires": [],
     "optional": [],
@@ -8,5 +8,5 @@
     "author": "custom",
     "version": "1.0.0",
     "homePage": "",
-    "description": "Enhanced character switcher with folders, favorites, sort & opacity controls."
+    "description": "Quick access to characters via a floating avatar in the chat input bar."
 }
