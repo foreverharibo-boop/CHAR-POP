@@ -38,15 +38,8 @@
 
 /* ── 피커: body에 fixed ── */
 #qc-picker {
-    position: fixed !important;
-    top: auto !important;
-    bottom: 100px !important;
-    left: 50% !important;
-    right: auto !important;
-    transform: translateX(-50%) !important;
-    z-index: 99999 !important;
-    max-height: 50vh !important;
-    overflow-y: auto !important;
+    position: fixed;
+    z-index: 99999;
     background: var(--SmartThemeBlurTintColor, rgba(18,19,32,0.97));
     border: 1px solid var(--SmartThemeBorderColor, rgba(255,255,255,0.12));
     border-radius: 14px;
@@ -66,8 +59,8 @@
 }
 
 @keyframes qcFadeIn {
-    from { opacity: 0; transform: translateX(-50%) translateY(5px) scale(0.97); }
-    to   { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+    from { opacity: 0; transform: translateY(5px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 /* [수정] 4열 그리드 — !important로 외부 스타일 덮어쓰기 방지 */
@@ -75,7 +68,7 @@
     display: grid !important;
     grid-template-columns: repeat(4, 1fr) !important;
     gap: 6px;
-    max-height: calc(50vh - 20px) !important;
+    max-height: 260px;
     overflow-y: auto;
     overflow-x: hidden;
     width: 100%;
