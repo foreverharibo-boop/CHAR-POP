@@ -6,7 +6,7 @@
     "js": "index.js",
     "css": "style.css",
     "author": "custom",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "homePage": "",
     "description": "Quick access to characters via a floating avatar in the chat input bar."
 }

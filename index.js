@@ -37,6 +37,7 @@ function createUI() {
 
     // 버튼 터치
     let _btnStart = null;
+    let _lastTouchToggleAt = 0;
     document.getElementById('qc-avatar-btn').addEventListener('touchstart', function(e) {
         _btnStart = { x: e.touches[0].clientX, y: e.touches[0].clientY };
     }, { passive: true });
@@ -47,13 +48,16 @@ function createUI() {
         if (isTap(_btnStart.x, _btnStart.y, t.clientX, t.clientY)) {
             e.preventDefault();
             togglePicker();
+            _lastTouchToggleAt = Date.now();
         }
         _btnStart = null;
     }, { passive: false });
 
-    $('#qc-avatar-btn').on('click', function() {
-        // 터치 기기가 아닌 경우(PC 마우스)만 실행
-        if (!('ontouchstart' in window)) togglePicker();
+    $('#qc-avatar-btn').on('click', function(e) {
+        // 실제 터치 직후 브라우저가 만드는 중복 click만 무시한다.
+        // 빠른 답장의 /dom click 및 PC 마우스 click은 정상 실행한다.
+        if (e.originalEvent?.isTrusted && Date.now() - _lastTouchToggleAt < 500) return;
+        togglePicker();
     });
 
     // 피커 바깥 터치/클릭 → 닫기
